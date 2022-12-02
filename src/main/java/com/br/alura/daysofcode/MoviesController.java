@@ -16,11 +16,11 @@ public class MoviesController {
     private String apiKey;
 
     @RequestMapping("/top250movies")
-    public Object top250Movies(){
-        ResponseEntity<Object> response = new ResponseEntity<>(restTemplate.getForObject("https://imdb-api.com/en/API/Top250Movies/"+apiKey, Object.class), HttpStatus.OK);
+    public String top250Movies(){
+        ResponseEntity<String> response = new ResponseEntity<>(restTemplate.getForObject("https://imdb-api.com/en/API/Top250Movies/"+apiKey, String.class), HttpStatus.OK);
 
         System.out.println(response);
 
-        return response;
+        return response.getBody();
     }
 }
