@@ -17,9 +17,7 @@ public class MoviesController {
 
     @RequestMapping("/top250movies")
     public String top250Movies(){
-        ResponseEntity<String> response = new ResponseEntity<>(restTemplate.getForObject("https://imdb-api.com/en/API/Top250Movies/"+apiKey, String.class), HttpStatus.OK);
-
-        System.out.println(response);
+        ResponseEntity<String> response = restTemplate.getForEntity("https://imdb-api.com/en/API/Top250Movies/"+apiKey, String.class);
 
         return response.getBody();
     }
