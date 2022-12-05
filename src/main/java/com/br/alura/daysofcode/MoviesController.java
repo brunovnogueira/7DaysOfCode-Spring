@@ -2,7 +2,6 @@ package com.br.alura.daysofcode;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,8 +15,8 @@ public class MoviesController {
     private String apiKey;
 
     @RequestMapping("/top250movies")
-    public String top250Movies(){
-        ResponseEntity<String> response = restTemplate.getForEntity("https://imdb-api.com/en/API/Top250Movies/"+apiKey, String.class);
+    public MovieList getTop250Movies(){
+        ResponseEntity<MovieList> response = restTemplate.getForEntity("https://imdb-api.com/en/API/Top250Movies/"+apiKey, MovieList.class);
 
         return response.getBody();
     }
