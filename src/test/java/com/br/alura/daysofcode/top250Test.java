@@ -20,7 +20,7 @@ public class top250Test {
 
     @Test
     void shouldGet250Movies(){
-        ResponseEntity<MovieList> response = testRestTemplate.getForEntity("http://localhost:"+port+"/top250movies",MovieList.class);
+        ResponseEntity<MoviesController.MovieList> response = testRestTemplate.getForEntity("http://localhost:"+port+"/top250movies", MoviesController.MovieList.class);
 
         Assertions.assertEquals(response.getStatusCode(), HttpStatus.OK);
         Assertions.assertNotNull(response.getBody());
